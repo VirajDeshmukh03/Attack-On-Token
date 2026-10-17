@@ -1,0 +1,876 @@
+/* ==========================================================================
+   MISBEHAVE: MAXIMUM RAGE-BAIT & TROLL EDITION
+   "Designed to push your blood pressure to glorious comedic heights."
+   ========================================================================== */
+
+:root {
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --bg-dark: #070913;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
+  --accent-yellow: #fbbf24;
+  --accent-red: #ef4444;
+  --accent-cyan: #06b6d4;
+  --tilt-angle: 0deg;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-dark);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+  transition: filter 0.3s ease;
+  position: relative;
+}
+
+body.screen-shake {
+  animation: violent-shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+body.color-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+body.disco-chaos {
+  animation: rainbow-disco 2s linear infinite;
+}
+
+@keyframes violent-shake {
+  10%, 90% { transform: translate3d(-4px, 0, 0); }
+  20%, 80% { transform: translate3d(6px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+  40%, 60% { transform: translate3d(8px, 0, 0); }
+}
+
+@keyframes rainbow-disco {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg) saturate(2); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* ==========================================================================
+   The Immortal Screen Fly (Rage Bait)
+   ========================================================================== */
+.rage-fly {
+  position: fixed;
+  font-size: 1.8rem;
+  z-index: 9999;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  pointer-events: auto;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+  animation: fly-wobble 0.3s infinite alternate;
+}
+
+@keyframes fly-wobble {
+  from { transform: rotate(-8deg) scale(1); }
+  to { transform: rotate(8deg) scale(1.08); }
+}
+
+/* ==========================================================================
+   Fake Discord Notification Banner
+   ========================================================================== */
+.discord-toast {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: #313338;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  border-left: 4px solid #5865f2;
+  animation: slideInRight 0.3s ease;
+  cursor: pointer;
+  max-width: 340px;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(110%); }
+  to { transform: translateX(0); }
+}
+
+.discord-toast-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #5865f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.discord-toast-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.discord-toast-author {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #f2f3f5;
+}
+
+.discord-toast-msg {
+  font-size: 0.78rem;
+  color: #dbdee1;
+}
+
+/* ==========================================================================
+   Fake 1% Battery Warning Alert Modal
+   ========================================================================== */
+.battery-alert-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.battery-alert-backdrop.open {
+  display: flex;
+  animation: popIn 0.2s ease;
+}
+
+.battery-alert-card {
+  width: 380px;
+  background: #ffffff;
+  color: #111827;
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.battery-alert-icon {
+  font-size: 3rem;
+  color: #ef4444;
+  margin-bottom: 0.5rem;
+}
+
+.battery-alert-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.battery-alert-desc {
+  font-size: 0.88rem;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.battery-alert-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Arcade Cabinet Frame
+   ========================================================================== */
+.arcade-cabinet {
+  width: 960px;
+  max-width: 100%;
+  background: #111827;
+  border: 4px solid #374151;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(139, 92, 246, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: rotate(var(--tilt-angle));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.arcade-marquee {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4, #f59e0b);
+  background-size: 300% 300%;
+  animation: gradient-pan 6s ease infinite;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.marquee-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.game-logo {
+  font-size: 2rem;
+  animation: pulse-logo 1s infinite alternate;
+}
+
+@keyframes pulse-logo {
+  from { transform: scale(1); }
+  to { transform: scale(1.15) rotate(5deg); }
+}
+
+.game-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.game-sub {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.95;
+}
+
+.marquee-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.flashing-worse-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: 2px solid #ffffff;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  animation: blink-button 0.8s infinite;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@keyframes blink-button {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.05); }
+}
+
+.sound-toggle-btn {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Chaos HUD */
+.chaos-hud {
+  background-color: #1a2234;
+  border-bottom: 2px solid #2d3748;
+  padding: 0.75rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.hud-card {
+  background-color: #0d1322;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hud-card-lbl {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.hud-card-val {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--accent-yellow);
+}
+
+.annoyance-fill {
+  height: 6px;
+  background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);
+  border-radius: 3px;
+  margin-top: 0.3rem;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+/* Arcade Tabs */
+.arcade-tabs {
+  background-color: #111827;
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid #1f2937;
+  overflow-x: auto;
+}
+
+.arcade-tab {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  color: #9ca3af;
+  padding: 0.6rem 1.15rem;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.arcade-tab:hover {
+  background-color: #283548;
+  color: #ffffff;
+}
+
+.arcade-tab.active {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+/* Screen Stage */
+.arcade-screen {
+  background-color: #0b0f19;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-stage {
+  display: none;
+  flex: 1;
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.screen-stage.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* STAGE 1: TROLL RED BUTTON & 99% LOADING BAR */
+.troll-button-arena {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.giant-red-btn {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff4d4d, #b91c1c 80%, #7f1d1d);
+  border: 8px solid #991b1b;
+  box-shadow: 0 16px 0 #450a0a, 0 25px 40px rgba(0,0,0,0.6);
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: transform 0.1s ease;
+  user-select: none;
+  position: relative;
+}
+
+.giant-red-btn:active {
+  transform: translateY(12px);
+  box-shadow: 0 4px 0 #450a0a;
+}
+
+.troll-status-banner {
+  background: rgba(31, 41, 55, 0.8);
+  border: 1px solid #374151;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--accent-yellow);
+}
+
+.hydra-btn {
+  position: absolute;
+  padding: 0.65rem 1.15rem;
+  background-color: #374151;
+  border: 2px solid #4b5563;
+  color: white;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #1f2937;
+  animation: popIn 0.2s ease;
+}
+
+/* 99% Loading Bar of Doom */
+.loading-doom-wrapper {
+  width: 480px;
+  max-width: 90%;
+  background: #1f2937;
+  border: 2px solid #374151;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.loading-doom-wrapper.active {
+  display: flex;
+  animation: popIn 0.3s ease;
+}
+
+.loading-doom-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.loading-doom-bar-bg {
+  width: 100%;
+  height: 20px;
+  background: #111827;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #374151;
+}
+
+.loading-doom-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(45deg, #8b5cf6 25%, #ec4899 25%, #ec4899 50%, #8b5cf6 50%, #8b5cf6 75%, #ec4899 75%);
+  background-size: 30px 30px;
+  animation: stripes 1s linear infinite;
+  transition: width 0.2s ease;
+}
+
+@keyframes stripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 30px 0; }
+}
+
+/* STAGE 2: DODGE ADULTING CANVAS */
+.canvas-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#troll-canvas {
+  background: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+  max-width: 100%;
+}
+
+.canvas-hint-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+}
+
+.mobile-dpad {
+  display: flex;
+  gap: 1rem;
+}
+
+.dpad-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #374151;
+  border: 2px solid #4b5563;
+  color: white;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dpad-btn:active {
+  transform: translateY(4px);
+}
+
+/* STAGE 3: THE IMPOSSIBLE MAZE */
+.maze-arena {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#maze-canvas {
+  background: #0d1322;
+  border: 3px solid #8b5cf6;
+  border-radius: 12px;
+  cursor: crosshair;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+}
+
+/* STAGE 4: RAGE-BAIT VOLUME & SEESAW SLIDER */
+.seesaw-arena {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 480px;
+  max-width: 100%;
+}
+
+.seesaw-card {
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.seesaw-beam {
+  width: 100%;
+  height: 12px;
+  background: #475569;
+  border-radius: 6px;
+  position: relative;
+  transform: rotate(var(--seesaw-tilt, 0deg));
+  transition: transform 0.2s ease-out;
+}
+
+.seesaw-ball {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f59e0b;
+  position: absolute;
+  top: -8px;
+  left: var(--ball-pos, 10px);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
+  cursor: grab;
+}
+
+.seesaw-status-text {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #fbbf24;
+}
+
+/* STAGE 5: THE PASSWORD RULE FROM HECK */
+.password-box {
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 14px;
+  padding: 1.5rem;
+  width: 460px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.troll-input-field {
+  background: #0f172a;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.troll-rule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.troll-rule {
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  background: #0f172a;
+  border-left: 3px solid #ef4444;
+  color: #f87171;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.troll-rule.passed {
+  border-left-color: #10b981;
+  color: #34d399;
+}
+
+/* Bottom Footer (Narrator & Inventory) */
+.arcade-footer {
+  background-color: #111827;
+  border-top: 2px solid #1f2937;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.narrator-pane {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.narrator-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  border: 2px solid #fff;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+.narrator-bubble {
+  display: flex;
+  flex-direction: column;
+}
+
+.narrator-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--accent-pink);
+  text-transform: uppercase;
+}
+
+.narrator-text {
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.inv-pouch {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pouch-slot {
+  width: 44px;
+  height: 44px;
+  background-color: #1f2937;
+  border: 2px solid #374151;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pouch-slot:hover {
+  background-color: #374151;
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Troll Popups */
+.troll-popup {
+  position: fixed;
+  background: #c0c0c0;
+  border: 3px outset #ffffff;
+  color: #000000;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  font-family: 'Tahoma', sans-serif;
+  min-width: 300px;
+  max-width: 90vw;
+  animation: popIn 0.2s ease-out;
+}
+
+.troll-popup-header {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #ffffff;
+  padding: 0.35rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-runaway-close {
+  background: #c0c0c0;
+  border: 1px outset #ffffff;
+  color: #000;
+  font-weight: 900;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: transform 0.1s;
+}
+
+.troll-popup-body {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.troll-popup-icon {
+  font-size: 2rem;
+}
+
+.troll-popup-actions {
+  padding: 0.5rem 1rem 0.85rem 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.win95-btn {
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  padding: 0.35rem 0.85rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.win95-btn:active {
+  border-style: inset;
+}
+
+/* Surrender / Confession Modal */
+.confess-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.confess-overlay.open {
+  display: flex;
+}
+
+.confess-card {
+  width: 580px;
+  max-width: 100%;
+  background: #111827;
+  border: 3px solid var(--accent-purple);
+  border-radius: 20px;
+  padding: 2.25rem;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+}
+
+.confess-icon { font-size: 4rem; margin-bottom: 0.5rem; }
+.confess-title { font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem; }
+.confess-desc { font-size: 1rem; color: #9ca3af; margin-bottom: 1.75rem; line-height: 1.5; }
+
+.confess-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.big-arcade-btn {
+  padding: 0.85rem 1.75rem;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-purple {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+  color: white;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MISBEHAVE: TROLL EDITION — The Game That Hates You 🎮</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤪</text></svg>">
+</head>
+<body>
+
+  <!-- ======================================================================
+       Arcade Cabinet Shell
+       ====================================================================== -->
+  <div class="arcade-cabinet">
+
+    <!-- Marquee Header -->
+    <header class="arcade-marquee">
+      <div class="marquee-left">
+        <span class="game-logo">🤪</span>
+        <div>
+          <h1 class="game-title">MISBEHAVE: TROLL EDITION</h1>
+          <p class="game-sub">Everything is working exactly as incorrectly intended.</p>
+        </div>
+      </div>
+
+      <div class="marquee-right">
+        <!-- Giant Obnoxious "MAKE IT WORSE" Siren Button -->
+        <button class="flashing-worse-btn" id="btn-make-worse" title="WARNING: THIS WILL MAKE THE WEBSITE WORSE">
+          🚨 MAKE IT WORSE!
+        </button>
+        <button class="sound-toggle-btn" id="btn-sound-toggle">🔊 Sound: ON</button>
+        <button class="sound-toggle-btn" id="btn-rage-quit">🏳️ Rage Quit</button>
+      </div>
+    </header>
+
+    <!-- Chaos & Annoyance HUD -->
+    <div class="chaos-hud">
+      <div class="hud-card">
+        <span class="hud-card-lbl">Sanity HP</span>
+        <div class="hud-card-val" id="hud-hp-val">100%</div>
+      </div>
+
+      <div class="hud-card">
+        <span class="hud-card-lbl">Annoyance Meter</span>
+        <div class="hud-card-val" id="hud-annoyance-val">0%</div>
+        <div class="annoyance-fill" id="annoyance-fill"></div>
+      </div>
+
+      <div class="hud-card">
+        <span class="hud-card-lbl">Troll Score</span>
+        <div class="hud-card-val" id="hud-score-val">0</div>
+      </div>
+
+      <div class="hud-card">
+        <span class="hud-card-lbl">Your Hero</span>
+        <div class="hud-card-val" style="color: #38bdf8;">Sir Couch Potato 🥔</div>
+      </div>
+    </div>
+
+    <!-- Mode Selector Tabs -->
+    <nav class="arcade-tabs">
+      <button class="arcade-tab active" data-tab="button">
+        <span>🔴</span>
+        <span>The Red Button</span>
+      </button>
+
+      <button class="arcade-tab" data-tab="dodge">
+        <span>🥔</span>
+        <span>Dodge Adulting</span>
+      </button>
+
+      <button class="arcade-tab" data-tab="maze">
+        <span>⚡</span>
+        <span>The Wire Maze</span>
+      </button>
+
+      <button class="arcade-tab" data-tab="seesaw">
+        <span>🎚️</span>
+        <span>Seesaw Volume</span>
+      </button>
+
+      <button class="arcade-tab" data-tab="password">
+        <span>🔏</span>
+        <span>Password Hell</span>
+      </button>
+    </nav>
+
+    <!-- Main Game Screen Display -->
+    <main class="arcade-screen">
+
+      <!-- STAGE 1: THE HYDRA RED BUTTON & 99% LOADING BAR -->
+      <section class="screen-stage active" id="stage-button">
+        <div class="troll-button-arena" id="troll-button-arena">
+          <button class="giant-red-btn" id="giant-red-btn">
+            DO NOT PRESS
+          </button>
+          <div class="troll-status-banner" id="button-status-text">
+            Status: Waiting for someone with zero impulse control
+          </div>
+
+          <!-- 99% Loading Bar of Doom -->
+          <div class="loading-doom-wrapper" id="loading-doom-wrapper">
+            <span class="loading-doom-title" id="loading-doom-label">Preparing 1 Million Dollar Reward...</span>
+            <div class="loading-doom-bar-bg">
+              <div class="loading-doom-bar-fill" id="loading-doom-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAGE 2: DODGE ADULTING (Canvas with Inverted Controls) -->
+      <section class="screen-stage" id="stage-dodge">
+        <div class="canvas-wrap">
+          <div id="dodge-status-text" style="font-weight: 800; color: #fbbf24; font-size: 0.95rem;">
+            Dodge Adulting: Use Left/Right Arrows or A/D!
+          </div>
+          <canvas id="troll-canvas" width="600" height="320"></canvas>
+          <div class="canvas-hint-row">
+            <span style="font-size: 0.8rem; color: #94a3b8;">
+              Dodge ✉️ 🧾 ⏰ | Catch 🍕 ☕ | Beware of fake gold 💰!
+            </span>
+            <div class="mobile-dpad">
+              <button class="dpad-btn" id="dpad-left">◀</button>
+              <button class="dpad-btn" id="dpad-right">▶</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAGE 3: THE IMPOSSIBLE WIRE MAZE -->
+      <section class="screen-stage" id="stage-maze">
+        <div class="maze-arena">
+          <span style="font-size: 0.95rem; font-weight: 800; color: #a855f7;">
+            ⚡ Guide your cursor from START to GOAL without touching the purple walls!
+          </span>
+          <canvas id="maze-canvas" width="560" height="300"></canvas>
+          <span style="font-size: 0.8rem; color: #94a3b8;">
+            Touch a wall and you get sent back immediately with a loud buzzer!
+          </span>
+        </div>
+      </section>
+
+      <!-- STAGE 4: THE SEESAW VOLUME SLIDER FROM HELL -->
+      <section class="screen-stage" id="stage-seesaw">
+        <div class="seesaw-arena">
+          <div class="seesaw-card">
+            <h3 style="font-size: 1.15rem; font-weight: 900; color: #fff;">
+              🎚️ Set Audio Volume to Exactly 50%
+            </h3>
+            <p style="font-size: 0.85rem; color: #94a3b8;">
+              Drag the golden ball to the middle. Good luck balancing with gravity!
+            </p>
+            <div class="seesaw-beam" id="seesaw-beam">
+              <div class="seesaw-ball" id="seesaw-ball"></div>
+            </div>
+            <div class="seesaw-status-text" id="seesaw-status">
+              Volume: 50% (UNSTABLE)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STAGE 5: THE PASSWORD VERIFICATION FROM HECK -->
+      <section class="screen-stage" id="stage-password">
+        <div class="password-box">
+          <h3 style="font-size: 1.1rem; font-weight: 900; color: #fff;">
+            🔏 Claim Your High Score: Create a Password
+          </h3>
+          <input type="text" class="troll-input-field" id="troll-password-input" placeholder="Type your password here...">
+          <div class="troll-rule-list">
+            <div class="troll-rule" id="rule-length">✗ Rule 1: Must be at least 6 characters long</div>
+            <div class="troll-rule" id="rule-emoji">✗ Rule 2: Must contain at least one emoji</div>
+            <div class="troll-rule" id="rule-roman">✗ Rule 3: Must contain a Roman Numeral (V, X, L, C, D, M)</div>
+            <div class="troll-rule" id="rule-antarctica">✗ Rule 4: Must contain current Antarctica temperature (-58)</div>
+          </div>
+          <p style="font-size: 0.75rem; color: #64748b;">
+            Tip: Backspace has a 40% chance of adding random extra letters.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Arcade Footer (Narrator & Inventory) -->
+    <footer class="arcade-footer">
+      <div class="narrator-pane">
+        <div class="narrator-avatar">🤖</div>
+        <div class="narrator-bubble">
+          <span class="narrator-tag">M.I.S.S.Y. (Chief Troll Officer)</span>
+          <span class="narrator-text" id="narrator-text">
+            Welcome to the Troll Edition! I explicitly told you NOT to click the red button.
+          </span>
+        </div>
+      </div>
+
+      <div class="inv-pouch" title="Click an item in your bag to use it!">
+        <div class="pouch-slot" data-item="pizza" title="Cold Pizza (+25 HP)">🍕</div>
+        <div class="pouch-slot" data-item="coffee" title="Quadruple Espresso (+777 Pts)">☕</div>
+        <div class="pouch-slot" data-item="sock" title="The Missing Sock (Mystery)">🧦</div>
+        <div class="pouch-slot" data-item="airplane" title="Airplane Mode (Blank Screen)">📱</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Fake 1% Battery Warning Modal -->
+  <div class="battery-alert-backdrop" id="battery-alert-backdrop">
+    <div class="battery-alert-card">
+      <div class="battery-alert-icon">🪫</div>
+      <h3 class="battery-alert-title">BATTERY LEVEL: 1%</h3>
+      <p class="battery-alert-desc">
+        Your device will shut down in 10 seconds unless you click below to download extra battery power!
+      </p>
+      <button class="battery-alert-btn" onclick="document.getElementById('battery-alert-backdrop').classList.remove('open'); window.MisbehaveGame.audio.playHonk();">
+        Download More Battery
+      </button>
+    </div>
+  </div>
+
+  <!-- Surrender / Victory Confession Modal -->
+  <div class="confess-overlay" id="confess-overlay">
+    <div class="confess-card">
+      <div class="confess-icon">🤪</div>
+      <h2 class="confess-title" id="confess-title">YOU BROKE THE SIMULATION!</h2>
+      <p class="confess-desc" id="confess-desc">
+        You pushed the website to maximum annoyance and survived!
+      </p>
+      <div class="confess-actions">
+        <button class="big-arcade-btn btn-purple" onclick="window.MisbehaveGame.engine.closeModal()">
+          🔁 Play Again (If You Dare)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/chaos.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/minigames.js"></script>
+</body>
+</html>
